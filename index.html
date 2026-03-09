@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Cadê a Chave?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h2>Anos</h2>
+            <nav id="container-anos">
+                <span style="color: gray; font-size: 0.8em;">Carregando anos...</span>
+                
+            </nav>
+            <div class="stats-container">
+    <p style="font-size: 12px; color: #b3b3b3; margin-top: 15px;">Suas Conquistas:</p>
+    <div id="badges-container"></div> 
+</div>
+
+<button id="btn-capsula" onclick="capsulaDoTempo()">
+    ⏳ Cápsula do Tempo
+</button>
+
+            <h2 class="mt-20">Filtros</h2>
+            <nav>
+                <a href="#" id="btn-culinaria">Culinária</a>
+                <a href="#" id="btn-politica">Política</a>
+                <div class="stats-container" style="padding: 10px; background: #252525; border-radius: 8px; margin-top: 20px;">
+                <p style="font-size: 12px; color: #b3b3b3; margin-bottom: 5px;">Seu Progresso:</p>
+                <div style="background: #444; height: 10px; border-radius: 5px; overflow: hidden;">
+                <div id="barra-progresso" style="background: #ff0000; width: 0%; height: 100%; transition: width 0.5s;"></div>
+                </div>
+    <p id="texto-contador" style="font-size: 14px; font-weight: bold; margin-top: 5px; color: white;">0 / 0 vídeos</p>
+</div>
+                <button id="btn-maratona" onclick="modoMaratona()">
+                    🚀 MODO MARATONA
+                </button>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1 id="titulo-pagina">Carregando vídeos...</h1>
+                <input type="text" id="barra-pesquisa" placeholder="Buscar vídeo pelo título..." class="search-bar">
+            </header>
+
+            <div class="carousel-container">
+                <button class="scroll-btn left-btn" id="btn-esquerda">❮</button>
+                
+                <div class="video-grid" id="minha-grade"></div>
+                
+                <button class="scroll-btn right-btn" id="btn-direita">❯</button>
+            </div>
+        </main>
+    </div> 
+
+    <div id="confetti-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></div>
+
+    <div id="modal-maratona-aviso" class="modal">
+    <div class="modal-content-maratona">
+        <div class="maratona-header">
+            <span>🍿 MODO MARATONA</span>
+        </div>
+        <div class="maratona-body">
+            <p>Vou escolher um vídeo que você ainda não marcou como visto.</p>
+            <p>Sua missão é assistir e clicar no botão <strong>'Visto'</strong> abaixo do vídeo!</p>
+            <p class="pergunta">Podemos começar?</p>
+        </div>
+        <div class="maratona-footer">
+            <button class="btn-cancelar" onclick="fecharAvisoMaratona()">CANCELAR</button>
+            <button class="btn-comecar" onclick="iniciarSorteioMaratona()">VAMOS LÁ! 🚀</button>
+        </div>
+    </div>
+</div>
+
+    <div id="modal-player" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        
+        <iframe id="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+        
+        <div class="controles-modal">
+            <button id="btn-visto-modal" class="btn-maratona-visto">
+                ✅ Marcar como visto e somar no Progresso
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

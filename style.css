@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212; /* Fundo escuro */
+    color: white;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-right: 1px solid #333;
+}
+
+.sidebar h2 {
+    color: #ff0000;;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.mt-20 {
+    margin-top: 30px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar a {
+    color: #b3b3b3;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.sidebar a, .btn-ano {
+    color: #b3b3b3;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    display: block; /* Garante que ocupem a linha toda no nav */
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 16px;
+    width: 100%;
+}
+
+.sidebar a:hover, .btn-ano:hover, .sidebar a.active, .btn-ano.active {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* DESTAQUE PARA O ANO SELECIONADO (O JS adiciona essa classe) */
+.btn-ano.selecionado {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    width: 250px;
+}
+
+.video-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Proíbe quebrar linha */
+    gap: 20px !important;
+    padding: 30px 10px !important;
+    overflow-x: auto !important; /* Ativa o scroll interno para as setas funcionarem */
+    scroll-behavior: smooth !important;
+    width: 100% !important;
+    
+    /* Esconde a barra de rolagem visual */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.video-grid::-webkit-scrollbar {
+    display: none;
+}   
+.video-grid::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}   
+
+.video-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    /* O SEGREDO: Não cresce, não encolhe, base de 280px */
+    flex: 0 0 280px !important; 
+    width: 280px !important;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+}
+
+.video-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
+.video-card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.video-info {
+    padding: 12px;
+}
+
+.video-info h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Mudado de nowrap para suportar as 2 linhas */
+    line-height: 1.3;
+}
+
+.video-info p {
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.scroll-btn {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.scroll-btn:hover {
+    background-color: #ff0000; 
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-btn { left: -25px; } /* Deslocado levemente para fora da grade */
+.right-btn { right: -25px; }
+
+.btn-visto {
+    background: none;
+    border: 1px solid #444;
+    color: #888;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+
+.video-card.visto {
+    opacity: 0.6; 
+}
+
+.video-card.visto .btn-visto {  
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    border-color: #2ecc71;
+}
+
+.modal {
+    display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+    width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    top: 5%; /* Subi um pouco para caber o botão novo embaixo */
+    width: 90%;
+    max-width: 850px;
+    background-color: #1e1e1e; /* Fundo igual ao da sidebar */
+    border-radius: 12px;
+    overflow: hidden; /* Corta as bordas do vídeo para ficarem arredondadas */
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+#video-iframe { width: 100%; aspect-ratio: 16/9; }
+.close-modal {
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 100; /* Garante que fica à frente do vídeo */
+    line-height: 1;
+    transition: color 0.2s;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Sombra para aparecer sobre o vídeo */
+}
+
+.close-modal:hover {
+   color: #ff0000 !important; /* Vermelho vibrante ao passar o rato */
+}
+
+#btn-maratona {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.btn-maratona-visto {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: transform 0.2s, background 0.2s;
+    
+}
+
+
+.btn-maratona-visto:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+#btn-maratona:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* Estilo do Modal de Aviso */
+.modal-content-maratona {
+    background-color: #1e1e1e;
+    margin: 15vh auto;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+    overflow: hidden;
+    animation: bounceIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.maratona-header {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.maratona-body { padding: 30px 20px; color: #ccc; }
+.maratona-body .pergunta { color: white; font-weight: bold; margin-top: 15px; font-size: 1.1em; }
+
+.maratona-footer { padding: 0 20px 30px; display: flex; gap: 10px; }
+.btn-comecar { background: #ff0000; color: white; flex: 1; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-cancelar { background: #444; color: white; flex: 1; border: none; padding: 12px; border-radius: 8px; cursor: pointer; }
+
+/* Efeito de Confete (Partículas) */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Container das Medalhas na Sidebar */
+#badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    min-height: 40px;
+}
+
+/* Estilo individual de cada Badge */
+#badges-container span {
+    background: linear-gradient(145deg, #333, #222);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: badgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+#badges-container span:hover {
+    transform: scale(1.1);
+    border-color: #ff0000;
+}
+
+/* Animação para quando a medalha aparece */
+@keyframes badgePop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#btn-capsula {
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Roxo/Azul estilo futurista */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#btn-capsula:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+}
+
+#btn-capsula:active {
+    transform: translateY(0);
+}
