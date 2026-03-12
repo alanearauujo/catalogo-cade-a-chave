@@ -23,19 +23,14 @@ body {
     background-color: #0f0f0f;
     padding: 12px;
     border-right: 1px solid #222;
-    
-    /* Fixação */
     position: sticky;
     top: 0;
     height: 100vh;
-    
-    /* Scroll interno para não esconder botões */
     overflow-y: auto; 
     display: flex;
     flex-direction: column;
 }
 
-/* Customização da barra de rolagem da sidebar (opcional) */
 .sidebar::-webkit-scrollbar {
     width: 5px;
 }
@@ -53,7 +48,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Container de Anos enxuto */
 #container-anos {
     display: flex;
     flex-direction: column;
@@ -61,13 +55,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* Botões de Anos e Links */
-.sidebar a, .btn-ano {
+.sidebar a, .btn-ano, .btn-quadro {
     color: #f1f1f1;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 8px;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
     cursor: pointer;
     display: block;
     border: none;
@@ -77,18 +70,21 @@ body {
     width: 100%;
 }
 
-.sidebar a:hover, .btn-ano:hover, .btn-ano.active {
+.sidebar a:hover, .btn-ano:hover, .btn-ano.active, .btn-quadro:hover {
     background-color: #272727;
+    color: #ffffff;
 }
 
-/* Destaque para o selecionado */
+.btn-quadro:hover {
+    transform: translateX(5px);
+}
+
 .btn-ano.selecionado {
     background-color: #ff0000 !important;
     color: white !important;
     font-weight: bold;
 }
 
-/* Filtros e Progresso (Área inferior) */
 .mt-20 {
     margin-top: 10px;
     padding-top: 20px;
@@ -128,18 +124,15 @@ header {
     border-color: #1c62b9;
 }
 
-/* --- GRID DE VÍDEOS (IGUAL AO YOUTUBE) --- */
+/* --- GRID DE VÍDEOS --- */
 .video-grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
     gap: 30px 16px !important;
     padding: 20px 0 !important;
     width: 100% !important;
-    
-    /* Mude para estas propriedades para evitar travamentos de scroll */
     overflow-y: visible !important; 
     height: auto !important;
-    min-height: 400px;
     contain: content;
     min-height: 100vh;
     backface-visibility: hidden;
@@ -159,11 +152,7 @@ header {
 }
 
 .video-card:hover img {
-    border-radius: 0px !important; /* Efeito clássico de hover */
-}
-
-.video-info {
-    padding-right: 12px;
+    border-radius: 0px !important;
 }
 
 .video-info h3 {
@@ -184,7 +173,6 @@ header {
     margin-bottom: 8px;
 }
 
-/* Botão de visto discreto */
 .btn-visto {
     border: none;
     background: #272727;
@@ -204,60 +192,80 @@ header {
     color: white;
 }
 
-/* --- MODAIS E ELEMENTOS EXTRA --- */
+/* --- MODAIS --- */
 .modal {
-    display: none; position: fixed; z-index: 1000; left: 0; top: 0;
-    width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.9);
 }
+
 .modal-content {
-    position: relative; margin: auto; top: 5%;
-    width: 90%; max-width: 850px;
-    background-color: #1e1e1e; border-radius: 12px;
-    overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    position: relative; 
+    margin: auto; 
+    top: 5%;
+    width: 90%; 
+    max-width: 850px;
+    background-color: #1e1e1e; 
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 #video-iframe { width: 100%; aspect-ratio: 16/9; }
 
 .close-modal {
-    color: #ffffff; font-size: 35px; font-weight: bold;
-    position: absolute; top: 10px; right: 15px;
-    cursor: pointer; z-index: 100;
+    color: #ffffff; 
+    font-size: 35px; 
+    font-weight: bold;
+    position: absolute; 
+    top: 10px; 
+    right: 15px;
+    cursor: pointer; 
+    z-index: 100;
 }
 
-/* Esconder setas de scroll que não são mais usadas */
-.scroll-btn { display: none !important; }
-
-/* Barra de Progresso e Conquistas */
-#badges-container {
-    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
-}
-#badges-container span {
-    background: #333; color: #fff; padding: 4px 10px;
-    border-radius: 15px; font-size: 11px; font-weight: bold;
-}
-
-#btn-maratona {
-    background: #ff0000; color: white; border: none; padding: 10px;
-    border-radius: 8px; cursor: pointer; font-weight: bold;
-    width: 100%; margin-top: 15px; font-size: 12px;
+/* --- ESTILO DO AVISO MARATONA (FIX CORRIGIDO) --- */
+.modal-content-maratona {
+    background-color: #1e1e1e;
+    margin: 15vh auto;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+    overflow: hidden;
+    animation: popSuccess 0.4s ease-out;
 }
 
-#btn-capsula {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    color: white; border: none; padding: 10px; border-radius: 8px;
-    cursor: pointer; font-weight: bold; width: 100%;
-    margin-top: 10px; font-size: 11px;
+.maratona-header {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-/* Container que envolve o botão no modal para centralizá-lo */
+.maratona-body { padding: 30px 20px; color: #ccc; line-height: 1.5; }
+.maratona-body .pergunta { color: white; font-weight: bold; margin-top: 15px; font-size: 1.1em; }
+.maratona-footer { padding: 0 20px 30px; display: flex; gap: 10px; }
+
+.btn-comecar { background: #ff0000; color: white; flex: 1; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-cancelar { background: #444; color: white; flex: 1; border: none; padding: 12px; border-radius: 8px; cursor: pointer; }
+
+/* --- BOTÃO VISTO NO MODAL --- */
 .controles-modal {
     padding: 20px;
     display: flex;
     justify-content: center;
-    background-color: #1e1e1e; /* Fundo igual ao do modal */
+    background-color: #1e1e1e;
 }
 
-/* O Botão propriamente dito */
 .btn-maratona-visto {
     background-color: #f1f1f1;
     color: #0f0f0f;
@@ -272,51 +280,27 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-width: 250px; /* Evita que o botão mude de tamanho ao trocar o texto */
+    min-width: 250px;
 }
 
 .btn-maratona-visto.sucesso {
-    background-color: #27ae60 !important; /* Verde */
+    background-color: #27ae60 !important;
     color: white !important;
     animation: popSuccess 0.4s ease-out;
 }
 
-/* Animação de "pulo" ao confirmar */
 @keyframes popSuccess {
     0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
-.btn-maratona-visto:hover {
-    background-color: #d9d9d9; /* Escurece levemente no hover */
-    transform: scale(1.02);
-}
+/* --- OUTROS --- */
+#badges-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+#badges-container span { background: #333; color: #fff; padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: bold; }
 
-.btn-maratona-visto:active {
-    transform: scale(0.98);
-}
+#btn-maratona { background: #ff0000; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; font-size: 12px; }
+#btn-capsula { background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; font-size: 11px; }
 
-/* Estilo para quando o vídeo já foi marcado (opcional) */
-.btn-maratona-visto.check-visto {
-    background-color: #2ecc71;
-    color: white;
-}
-
-.btn-quadro {
-    color: #b3b3b3;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
-.btn-quadro:hover {
-    background-color: #272727;
-    color: #ffffff;
-    transform: translateX(5px);
-}
+.confetti { position: absolute; width: 10px; height: 10px; animation: fall 3s linear forwards; }
+@keyframes fall { to { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
