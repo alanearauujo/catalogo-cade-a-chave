@@ -13,9 +13,12 @@ async function inicializarSite() {
     try {
         const resposta = await fetch('videos.json');
         const dadosBrutos = await resposta.json();
+        // Ordena do mais novo para o mais antigo
         todosOsVideosGlobal = dadosBrutos.sort((a, b) => b.data.localeCompare(a.data));
 
         gerarBotoesDeAno();
+        configurarFiltrosDeQuadros(); // Inicializa os ouvintes dos botões de quadros
+        
         const anoMaisRecente = todosOsVideosGlobal[0].data.substring(0, 4);
         filtrarPorAno(anoMaisRecente);
         atualizarContador();
@@ -48,40 +51,99 @@ function filtrarPorAno(anoAlvo) {
     carregarAno(filtrados, anoAlvo);
 }
 
+// Configuração dinâmica para os botões de quadros
+function configurarFiltrosDeQuadros() {
+    document.querySelectorAll('.btn-quadro').forEach(botao => {
+        botao.onclick = (e) => {
+            e.preventDefault();
+            
+            // Pega o termo do atributo data-quadro (ou data-busca)
+            const termoBusca = (botao.getAttribute('data-quadro') || botao.getAttribute('data-busca')).toLowerCase();
+            
+            // Filtra os vídeos usando a lógica de normalização (ignora acentos)
+            const filtrados = todosOsVideosGlobal.filter(v => {
+                const titulo = normalizarTexto(v.titulo);
+                return titulo.includes(normalizarTexto(termoBusca));
+            });
+
+            // Carrega os vídeos na grade
+            carregarAno(filtrados, `Quadro: ${botao.innerText}`);
+            
+            // Destaque visual do botão selecionado
+            document.querySelectorAll('.btn-quadro').forEach(b => b.style.backgroundColor = "");
+            botao.style.backgroundColor = "#333";
+        };
+    });
+}
+
 function carregarAno(listaDeVideos, titulo) {
-    gradeDeVideos.innerHTML = "";
-    tituloPagina.innerText = "Vídeos: " + titulo;
+    tituloPagina.innerText = titulo;
     const vistos = JSON.parse(localStorage.getItem("videosVistos")) || [];
+    
+    gradeDeVideos.innerHTML = ""; 
+    const fragmento = document.createDocumentFragment();
 
     listaDeVideos.forEach(video => {
-        const jaVisto = vistos.includes(video.id) ? "visto" : "";
-        gradeDeVideos.innerHTML += `
-            <div class="video-card ${jaVisto}" id="card-${video.id}">
-                <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" onclick="abrirVideo('${video.id}')">
-                <div class="video-info">
-                    <h3 onclick="abrirVideo('${video.id}')">${video.titulo}</h3>
+        const jaVisto = vistos.includes(video.id);
+        
+        const card = document.createElement("div");
+        card.className = `video-card ${jaVisto ? "visto" : ""}`;
+        card.id = `card-${video.id}`;
+        
+        card.innerHTML = `
+            <div class="thumbnail-default">
+                <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" 
+                     loading="lazy" 
+                     onclick="abrirVideo('${video.id}')">
+            </div>
+            <div class="video-info">
+                <h3 onclick="abrirVideo('${video.id}')">${video.titulo}</h3>
+                <div class="video-meta">
                     <p>${video.data.substring(6,8)}/${video.data.substring(4,6)}/${video.data.substring(0,4)}</p>
                     <button class="btn-visto" onclick="alternarVisto('${video.id}')">
-                        ${jaVisto ? "✓ Visto" : "Marcar como visto"}
+                        ${jaVisto ? "✓ Visto" : "Marcar visto"}
                     </button>
                 </div>
             </div>`;
+        
+        fragmento.appendChild(card);
     });
-    gradeDeVideos.scrollLeft = 0;
+
+    gradeDeVideos.appendChild(fragmento);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 4. Modal Player e Fechamento
 function abrirVideo(id) {
     iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
     modal.style.display = "block";
 
     const btnVistoModal = document.getElementById("btn-visto-modal");
+    const vistos = JSON.parse(localStorage.getItem("videosVistos")) || [];
+    
+    // Verifica se já foi visto para definir o estado do botão no modal
+    if (vistos.includes(id)) {
+        btnVistoModal.classList.add("sucesso");
+        btnVistoModal.innerHTML = "🚀 Vídeo Assistido! Progresso Salvo!";
+    } else {
+        btnVistoModal.classList.remove("sucesso");
+        btnVistoModal.innerHTML = "✅ Marcar como visto e somar no Progresso";
+    }
+
     btnVistoModal.onclick = () => {
-        alternarVisto(id);
-        alert("✅ Progresso atualizado!");
+        const vistosAtualizados = JSON.parse(localStorage.getItem("videosVistos")) || [];
+        if (vistosAtualizados.includes(id)) {
+            alert("Este vídeo já está no seu progresso! 😊");
+            return;
+        }
+
+        alternarVisto(id); 
+        btnVistoModal.classList.add("sucesso");
+        btnVistoModal.innerHTML = "🚀 Vídeo Assistido! Progresso Salvo!";
+        dispararConfetes(); 
     };
 }
 
+// Fechar Modal
 const botaoFechar = document.querySelector(".close-modal");
 botaoFechar.onclick = function() {
     modal.style.display = "none";
@@ -158,7 +220,6 @@ function iniciarSorteioMaratona() {
 function capsulaDoTempo() {
     const hoje = new Date();
     const diaMes = String(hoje.getMonth() + 1).padStart(2, '0') + String(hoje.getDate()).padStart(2, '0');
-
     const filtrados = todosOsVideosGlobal.filter(video => video.data.substring(4, 8) === diaMes);
 
     if (filtrados.length > 0) {
@@ -181,37 +242,32 @@ function dispararConfetes() {
     }
 }
 
-// Filtros e Busca
-document.getElementById("btn-culinaria").onclick = (e) => {
-    e.preventDefault();
-    const palavras = ["cozinha", "provando", "comida", "doce", "receita", "gourmet", "restaurante", "geladeira", "provamos"];
-    const filtrados = todosOsVideosGlobal.filter(v => palavras.some(p => v.titulo.toLowerCase().includes(p)));
-    carregarAno(filtrados, "Culinária");
-};
+// 7. Busca Inteligente
+let debounceTimer;
 
-document.getElementById("btn-politica").onclick = (e) => {
-    e.preventDefault();
-    const palavras = ["política", "eleição", "voto", "governo", "canadá", "imposto", "notícia"];
-    const filtrados = todosOsVideosGlobal.filter(v => palavras.some(p => v.titulo.toLowerCase().includes(p)));
-    carregarAno(filtrados, "Política");
-};
+function normalizarTexto(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
 
 barraPesquisa.oninput = () => {
-    const termo = barraPesquisa.value.toLowerCase().replace(/[\.\-]/g, " ");
-    const palavrasBusca = termo.split(" ").filter(p => p.length > 0);
-
-    if (palavrasBusca.length > 0) {
-        const filtrados = todosOsVideosGlobal.filter(video => {
-            const tituloLimpo = video.titulo.toLowerCase().replace(/[\.\-]/g, " ");
-            return palavrasBusca.every(palavra => tituloLimpo.includes(palavra));
-        });
-        carregarAno(filtrados, "Busca: " + barraPesquisa.value);
-    } else {
-        filtrarPorAno("2024");
-    }
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        const termoOriginal = barraPesquisa.value.trim();
+        const termoNormalizado = normalizarTexto(termoOriginal);
+        
+        if (termoNormalizado.length > 0) {
+            const palavrasBusca = termoNormalizado.split(/\s+/); 
+            const filtrados = todosOsVideosGlobal.filter(video => {
+                const tituloNormalizado = normalizarTexto(video.titulo);
+                return palavrasBusca.every(palavra => tituloNormalizado.includes(palavra));
+            });
+            carregarAno(filtrados, `Resultados para: "${termoOriginal}"`);
+        } else {
+            const fallbackAno = todosOsVideosGlobal[0].data.substring(0, 4);
+            filtrarPorAno(fallbackAno);
+        }
+    }, 250);
 };
 
-document.getElementById("btn-direita").onclick = () => gradeDeVideos.scrollBy({ left: 1200, behavior: 'smooth' });
-document.getElementById("btn-esquerda").onclick = () => gradeDeVideos.scrollBy({ left: -1200, behavior: 'smooth' });
-
+// Inicia o sistema
 inicializarSite();
