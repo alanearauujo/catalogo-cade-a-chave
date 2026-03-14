@@ -1,6 +1,6 @@
 let todosOsVideosGlobal = [];
 
-// 1. Elementos do HTML
+
 const gradeDeVideos = document.getElementById("minha-grade");
 const tituloPagina = document.getElementById("titulo-pagina");
 const barraPesquisa = document.getElementById("barra-pesquisa");
@@ -8,16 +8,15 @@ const modal = document.getElementById("modal-player");
 const iframe = document.getElementById("video-iframe");
 const containerAnos = document.getElementById("container-anos");
 
-// 2. Inicialização
+
 async function inicializarSite() {
     try {
         const resposta = await fetch('videos.json');
         const dadosBrutos = await resposta.json();
-        // Ordena do mais novo para o mais antigo
         todosOsVideosGlobal = dadosBrutos.sort((a, b) => b.data.localeCompare(a.data));
 
         gerarBotoesDeAno();
-        configurarFiltrosDeQuadros(); // Inicializa os ouvintes dos botões de quadros
+        configurarFiltrosDeQuadros(); 
         
         const anoMaisRecente = todosOsVideosGlobal[0].data.substring(0, 4);
         filtrarPorAno(anoMaisRecente);
@@ -28,7 +27,6 @@ async function inicializarSite() {
     }
 }
 
-// 3. Funções de Interface
 function gerarBotoesDeAno() {
     const anosUnicos = [...new Set(todosOsVideosGlobal.map(v => v.data.substring(0, 4)))].sort((a, b) => b - a);
     containerAnos.innerHTML = "";
@@ -37,11 +35,16 @@ function gerarBotoesDeAno() {
         const btn = document.createElement("button");
         btn.innerText = ano;
         btn.className = "btn-ano";
+        
         btn.onclick = () => {
-            document.querySelectorAll('.btn-ano').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtrarPorAno(ano);
-        };
+        document.querySelectorAll('.btn-ano, .btn-quadro').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    
+        localStorage.setItem("ultimoFiltroTipo", "ano");
+        localStorage.setItem("ultimoFiltroValor", ano);
+    
+    filtrarPorAno(ano);
+};  
         containerAnos.appendChild(btn);
     });
 }
@@ -51,27 +54,28 @@ function filtrarPorAno(anoAlvo) {
     carregarAno(filtrados, anoAlvo);
 }
 
-// Configuração dinâmica para os botões de quadros
 function configurarFiltrosDeQuadros() {
     document.querySelectorAll('.btn-quadro').forEach(botao => {
         botao.onclick = (e) => {
             e.preventDefault();
-            
-            // Pega o termo do atributo data-quadro (ou data-busca)
             const termoBusca = (botao.getAttribute('data-quadro') || botao.getAttribute('data-busca')).toLowerCase();
             
-            // Filtra os vídeos usando a lógica de normalização (ignora acentos)
+            
+            localStorage.setItem("ultimoFiltroTipo", "quadro");
+            localStorage.setItem("ultimoFiltroValor", termoBusca);
+            localStorage.setItem("ultimoTituloFiltro", botao.innerText);
+
             const filtrados = todosOsVideosGlobal.filter(v => {
                 const titulo = normalizarTexto(v.titulo);
-                return titulo.includes(normalizarTexto(termoBusca));
+                const tags = v.tags ? normalizarTexto(v.tags) : ""; 
+                return titulo.includes(normalizarTexto(termoBusca)) || tags.includes(normalizarTexto(termoBusca));
             });
 
-            // Carrega os vídeos na grade
             carregarAno(filtrados, `Quadro: ${botao.innerText}`);
             
-            // Destaque visual do botão selecionado
-            document.querySelectorAll('.btn-quadro').forEach(b => b.style.backgroundColor = "");
-            botao.style.backgroundColor = "#333";
+            
+            document.querySelectorAll('.btn-quadro, .btn-ano').forEach(b => b.classList.remove('active'));
+            botao.classList.add('active');
         };
     });
 }
@@ -120,7 +124,7 @@ function abrirVideo(id) {
     const btnVistoModal = document.getElementById("btn-visto-modal");
     const vistos = JSON.parse(localStorage.getItem("videosVistos")) || [];
     
-    // Verifica se já foi visto para definir o estado do botão no modal
+
     if (vistos.includes(id)) {
         btnVistoModal.classList.add("sucesso");
         btnVistoModal.innerHTML = "🚀 Vídeo Assistido! Progresso Salvo!";
@@ -143,7 +147,6 @@ function abrirVideo(id) {
     };
 }
 
-// Fechar Modal
 const botaoFechar = document.querySelector(".close-modal");
 botaoFechar.onclick = function() {
     modal.style.display = "none";
@@ -157,7 +160,7 @@ window.onclick = function(event) {
     }
 };
 
-// 5. Progresso e Conquistas
+
 function atualizarContador() {
     const vistos = JSON.parse(localStorage.getItem("videosVistos")) || [];
     const total = todosOsVideosGlobal.length;
@@ -198,7 +201,7 @@ function verificarConquistas(quantidade) {
     if (quantidade >= 1700) container.innerHTML += "<span>👑 Mestre da Chave</span> ";
 }
 
-// 6. Maratona e Outros
+
 function modoMaratona() {
     document.getElementById("modal-maratona-aviso").style.display = "block";
 }
@@ -242,7 +245,7 @@ function dispararConfetes() {
     }
 }
 
-// 7. Busca Inteligente
+
 let debounceTimer;
 
 function normalizarTexto(texto) {
@@ -269,5 +272,39 @@ barraPesquisa.oninput = () => {
     }, 250);
 };
 
-// Inicia o sistema
+async function inicializarSite() {
+    try {
+        const resposta = await fetch('videos.json');
+        const dadosBrutos = await resposta.json();
+        todosOsVideosGlobal = dadosBrutos.sort((a, b) => b.data.localeCompare(a.data));
+
+        gerarBotoesDeAno();
+        configurarFiltrosDeQuadros();
+        
+        
+        const tipoFiltro = localStorage.getItem("ultimoFiltroTipo");
+        const valorFiltro = localStorage.getItem("ultimoFiltroValor");
+        const tituloFiltro = localStorage.getItem("ultimoTituloFiltro");
+
+        if (tipoFiltro === "quadro" && valorFiltro) {
+            
+            const filtrados = todosOsVideosGlobal.filter(v => {
+                const titulo = normalizarTexto(v.titulo);
+                const tags = v.tags ? normalizarTexto(v.tags) : "";
+                return titulo.includes(normalizarTexto(valorFiltro)) || tags.includes(normalizarTexto(valorFiltro));
+            });
+            carregarAno(filtrados, `Quadro: ${tituloFiltro}`);
+        } else {
+            
+            const anoMaisRecente = todosOsVideosGlobal[0].data.substring(0, 4);
+            const anoParaCarregar = (tipoFiltro === "ano" && valorFiltro) ? valorFiltro : anoMaisRecente;
+            filtrarPorAno(anoParaCarregar);
+        }
+
+        atualizarContador();
+    } catch (erro) {
+        console.error("Erro:", erro);
+    }
+}
+
 inicializarSite();

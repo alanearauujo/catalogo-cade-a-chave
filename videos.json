@@ -982,7 +982,8 @@
   {
     "id": "XzRJ4rW7XKM",
     "titulo": "TUDO O QUE VOCÊ QUERIA SABER!- Ep. 200.",
-    "data": "20140728"
+    "data": "20140728",
+    "tags":"perguntas"
   },
   {
     "id": "M1HmNazSEjw",
@@ -1477,7 +1478,8 @@
   {
     "id": "xHPrzTRfpzI",
     "titulo": "CASA COMIGO?- Ep. 300",
-    "data": "20141122"
+    "data": "20141122",
+    "tags":"perguntas"
   },
   {
     "id": "NuEc_Lyh9rk",
@@ -1692,7 +1694,8 @@
   {
     "id": "Vtbo15ArO8A",
     "titulo": "LEVE A CHAVE! (Diário de Viagem)- Ep.345",
-    "data": "20150110"
+    "data": "20150110",
+    "tags":"atlanta"
   },
   {
     "id": "7-_dRMk3VuU",
@@ -1702,7 +1705,8 @@
   {
     "id": "lZK6gswH_Ew",
     "titulo": "EXCLUSIVO: MARIDO ROUBA MULHER! (Diário de Viagem) - Ep. 347",
-    "data": "20150113"
+    "data": "20150113",
+    "tags":"atlanta"
   },
   {
     "id": "Ds1AhW1a8u0",
@@ -1717,7 +1721,8 @@
   {
     "id": "Gc4LC1J5cxo",
     "titulo": "ELA GOSTA DE CEMITÉRIO! ( Diário de Viagem)- Ep. Bônus.",
-    "data": "20150115"
+    "data": "20150115",
+    "tags":"atlanta"
   },
   {
     "id": "ZO4v445aKt8",
@@ -2147,7 +2152,8 @@
   {
     "id": "zdev3uKvazE",
     "titulo": "GANHAMOS PRSENTES MEDIEVAIS DO THE WITCHER -Ep.435",
-    "data": "20150418"
+    "data": "20150418",
+    "tags":"polonia"
   },
   {
     "id": "b2nVThU_Hlo",
@@ -2162,32 +2168,39 @@
   {
     "id": "NQsM9ISJpbM",
     "titulo": "CRACÓVIA! - Ep.438",
-    "data": "20150420"
+    "data": "20150420",
+    "tags":"polonia"
   },
   {
     "id": "wjucI8ejQSY",
     "titulo": "A CASA DO HORROR- Auschiwitz e a catástrofe do Nazismo- Ep.439",
-    "data": "20150422"
+    "data": "20150422",
+    "tags":"polonia"
+
   },
   {
     "id": "3n9fZoFbBqg",
     "titulo": "CIDADE VELHA E HOTEL NOVO - Ep.440",
-    "data": "20150423"
+    "data": "20150423",
+    "tags":"polonia"
   },
   {
     "id": "nMet2VAsXZ4",
     "titulo": "SAIU DA VIDA PARA ENTRAR NA HISTÓRIA -Ep.442",
-    "data": "20150424"
+    "data": "20150424",
+    "tags":"polonia"
   },
   {
     "id": "0SalIkvyoyY",
     "titulo": "TUDO REMENDADO! -Ep.441",
-    "data": "20150424"
+    "data": "20150424",
+    "tags":"polonia"
   },
   {
     "id": "vn88oRN_1t8",
     "titulo": "PATINADORES POLONESES -Ep.443",
-    "data": "20150425"
+    "data": "20150425",
+    "tags":"polonia"
   },
   {
     "id": "l0o2t8lVZOE",
@@ -2197,7 +2210,8 @@
   {
     "id": "5-f0jPtJZL4",
     "titulo": "O LUGAR ONDE O COISA DE NERD NASCEU - Ep.446",
-    "data": "20150429"
+    "data": "20150429",
+    "tags":"polonia"
   },
   {
     "id": "mK1c4ZO9Bb8",
@@ -2207,12 +2221,14 @@
   {
     "id": "Sh7DnZ_xkx8",
     "titulo": "O PATO DO MAL (Cadê a Mala - Alemanha) - Ep.447",
-    "data": "20150501"
+    "data": "20150501",
+    "tags":"polonia"
   },
   {
     "id": "1z8Q7i6NHb8",
     "titulo": "MESTRE LEON! (Cadê a mala em Flensburg) -Ep. 448",
-    "data": "20150502"
+    "data": "20150502",
+    "tags":"polonia"
   },
   {
     "id": "DscTBIcDuos",
@@ -4567,7 +4583,8 @@
   {
     "id": "dkfn04hZBQE",
     "titulo": "COMO ARRUMAR UM AMOR - Ep.914",
-    "data": "20170214"
+    "data": "20170214",
+    "tags": "#caca"
   },
   {
     "id": "QrhxXhUEUsw",
@@ -4647,7 +4664,8 @@
   {
     "id": "yKzlitd_G0M",
     "titulo": "PROVANDO BEBIDAS JAPONESAS - Ep.931",
-    "data": "20170307"
+    "data": "20170307",
+    "tags": "experimentando"
   },
   {
     "id": "xXDHWMhmqDc",
@@ -5077,7 +5095,8 @@
   {
     "id": "LE6IhIbpz84",
     "titulo": "NÃO SOU ENERGÚMENO! - Ep.1019",
-    "data": "20170713"
+    "data": "20170713",
+    "tags": "surra verbal"
   },
   {
     "id": "XLJr0oIhgv8",
@@ -5132,7 +5151,8 @@
   {
     "id": "cJBUCa2Cs_4",
     "titulo": "DESAFORO - Ep.1028",
-    "data": "20170730"
+    "data": "20170730",
+    "tags":"coreia"
   },
   {
     "id": "r69lKmiE-tQ",
@@ -5152,7 +5172,8 @@
   {
     "id": "rMQyviurUoA",
     "titulo": "NUNCA PASSEI TANTO CALOR NA VIDA - Ep.1031",
-    "data": "20170804"
+    "data": "20170804",
+    "tags":"coreia"
   },
   {
     "id": "RlSDFVIq0-M",
@@ -5162,17 +5183,20 @@
   {
     "id": "7PFFIUP-f24",
     "titulo": "O MAIOR YAKULT QUE VOCÊ RESPEITA! - Ep.1032",
-    "data": "20170805"
+    "data": "20170805",
+    "tags":"coreia"
   },
   {
     "id": "EqQ134J62So",
     "titulo": "PERDEMOS A COMPOSTURA - Ep.1033",
-    "data": "20170807"
+    "data": "20170807",
+    "tags":"coreia"
   },
   {
     "id": "W3VzmduBmA4",
     "titulo": "DESCOBRINDO MEU VERDADEIRO EU - Ep.1034",
-    "data": "20170808"
+    "data": "20170808",
+    "tags":"coreia"
   },
   {
     "id": "v1rUyIhPR-g",
@@ -5502,7 +5526,8 @@
   {
     "id": "fIMX6a1GZXM",
     "titulo": "PLANOS REVELADOS!  - Ep.1098",
-    "data": "20171117"
+    "data": "20171117",
+    "tags":"japao"
   },
   {
     "id": "GnNY05fEycE",
@@ -5512,32 +5537,38 @@
   {
     "id": "kbQgryzOfDo",
     "titulo": "EXPERIMENTANDO CÉREBRO DE CAMARÃO CRU - Ep. 1100",
-    "data": "20171123"
+    "data": "20171123",
+    "tags":"japao"
   },
   {
     "id": "kko1HDqxrZ0",
     "titulo": "O LUGAR MAIS BREGA DO MUNDO - Ep.1101",
-    "data": "20171127"
+    "data": "20171127",
+    "tags":"japao"
   },
   {
     "id": "7AzX0V9Xm8k",
     "titulo": "FOMOS PASSEAR NA FLORESTA - Ep.1103",
-    "data": "20171129"
+    "data": "20171129",
+    "tags":"japao"
   },
   {
     "id": "IEnVcpDOk80",
     "titulo": "SUSHI DE LÍNGUA DE VACA - Ep.1102",
-    "data": "20171129"
+    "data": "20171129",
+    "tags":"japao"
   },
   {
     "id": "Pa5FIvOS7rE",
     "titulo": "O DIA EM QUE ENGOLI UM SAPO DE VERDADE - Ep.1104",
-    "data": "20171130"
+    "data": "20171130",
+    "tags":"japao"
   },
   {
     "id": "ub9QxjXH8PE",
     "titulo": "O MELHOR LUGAR DO MUNDO - Ep.1105",
-    "data": "20171201"
+    "data": "20171201",
+    "tags":"japao"
   },
   {
     "id": "oOZaEbGH2_8",
@@ -5547,12 +5578,14 @@
   {
     "id": "nh6k015yW_o",
     "titulo": "O MELHOR JEITO DE USAR UMA CUECA DO PIKACHU - EP. 1108",
-    "data": "20171204"
+    "data": "20171204",
+    "tags":"japao"
   },
   {
     "id": "5w4TeaR-Hps",
     "titulo": "AQUELES ENCONTROS QUE VOCÊ RESPEITA - Ep.1107",
-    "data": "20171204"
+    "data": "20171204",
+    "tags":"japao"
   },
   {
     "id": "_uxqnUePP1s",
@@ -5917,12 +5950,14 @@
   {
     "id": "4-vBdosW9Ww",
     "titulo": "EXPERIMENTANDO COMIDA COREANA DE RICO - Ep.1179",
-    "data": "20180408"
+    "data": "20180408",
+    "tags":"coreia"
   },
   {
     "id": "4fPeJTEicnw",
     "titulo": "VIDA ZERADA -Ep.1180",
-    "data": "20180409"
+    "data": "20180409",
+    "tags":"coreia"
   },
   {
     "id": "sa14XVKlxyA",
@@ -5982,7 +6017,8 @@
   {
     "id": "RgxcC6VK39E",
     "titulo": "RESPOSTAS SINCERAS SOBRE O AMOR - Ep. 1190",
-    "data": "20180429"
+    "data": "20180429",
+    "tags": "#caca"
   },
   {
     "id": "Mb_qss-UIGk",
@@ -6027,7 +6063,8 @@
   {
     "id": "sQEUgkUjTtA",
     "titulo": "NÃO SEJA O PRECISADO - Ep.1200",
-    "data": "20180516"
+    "data": "20180516",
+    "tags": "#caca"
   },
   {
     "id": "sryV85iMFFE",
@@ -6667,7 +6704,8 @@
   {
     "id": "bZX3OFQEQaY",
     "titulo": "O BOLO DE FUBÁ SUPREMO DO TALENTO FOFINHO - Ep. 1330",
-    "data": "20190214"
+    "data": "20190214",
+    "tags":"talento supremo"
   },
   {
     "id": "gvSyjWVkPP0",
@@ -7512,7 +7550,8 @@
   {
     "id": "lo3FMwn4WVc",
     "titulo": "TESTAMOS ANTES DO LANÇAMENTO! - Ep. 1498",
-    "data": "20201020"
+    "data": "20201020",
+    "tags":"teste supremo"
   },
   {
     "id": "zP90IMjyxVo",
@@ -7817,7 +7856,9 @@
   {
     "id": "TM75qj0RDus",
     "titulo": "PASTEL COM SORVETE! COMIDA BRASILEIRA EM VANCOUVER - Ep. 1560",
-    "data": "20210821"
+    "data": "20210821",
+    "tags":"estou com sorte"
+
   },
   {
     "id": "xlXvBvfpywY",
@@ -7852,7 +7893,8 @@
   {
     "id": "1YnrpKDxZbk",
     "titulo": "DECORAÇÃO E REVIEW DE ASPIRADOR ROBO  - Ep.1567",
-    "data": "20211002"
+    "data": "20211002",
+    "tags":"teste supremo"
   },
   {
     "id": "f9ifZKZv15c",
@@ -7902,7 +7944,8 @@
   {
     "id": "Hy7MZZPHl5o",
     "titulo": "FIZEMOS O MELHOR DOCE DE ABACAXI DO MUNDO - Ep. 1577",
-    "data": "20211119"
+    "data": "20211119",
+    "tags":"talento supremo"
   },
   {
     "id": "sXNlKYHSjeQ",
@@ -7957,7 +8000,8 @@
   {
     "id": "q0oZOT1nkfA",
     "titulo": "ROBÔ QUE ASPIRA, PASSA PANO E SE LIMPA SOZINHO! - Ep 1588",
-    "data": "20220213"
+    "data": "20220213",
+    "tags":"teste supremo"
   },
   {
     "id": "niIfbLSkDJg",
@@ -8032,22 +8076,26 @@
   {
     "id": "32a81kP9LOI",
     "titulo": "EXPERIMENTAMOS DOCES INDIANOS",
-    "data": "20220504"
+    "data": "20220504",
+    "tags":"experimentando"
   },
   {
     "id": "TNsBwU-2r4U",
     "titulo": "COMPRAMOS NOSSA PRIMEIRA AIR FRYER. QUAL ESCOLHEMOS?",
-    "data": "20220513"
+    "data": "20220513",
+    "tags":"teste supremo"
   },
   {
     "id": "edDWV02jK6I",
     "titulo": "A PRIMEIRA VIAGEM ROMÂNTICA DEPOIS DE MUITO TEMPO",
-    "data": "20220525"
+    "data": "20220525",
+    "tags":"viagens"
   },
   {
     "id": "ULB_TCtEdqM",
     "titulo": "COMEMOS EM 3 RESTAURANTES PRA ESCOLHER O MELHOR",
-    "data": "20220530"
+    "data": "20220530",
+    "tags":"estou com sorte"
   },
   {
     "id": "ABqnGeY94bU",
@@ -8057,12 +8105,14 @@
   {
     "id": "j3hfw7IAuiE",
     "titulo": "GELADINHO DA MALÁSIA E DOCE DE BABOSA DA TAILÂNDIA",
-    "data": "20220610"
+    "data": "20220610",
+    "tags":"experimentando"
   },
   {
     "id": "mx8BILJKxJM",
     "titulo": "Testamos o Fast Easy Clean da Mondial",
-    "data": "20220619"
+    "data": "20220619",
+    "tags":"teste supremo"
   },
   {
     "id": "s0oEAG1HZwg",
@@ -8092,22 +8142,26 @@
   {
     "id": "J6ap_pPJA3I",
     "titulo": "VIAJEI 5 HORAS PRA COMER ESSE PRATO - Ep. 1612",
-    "data": "20220804"
+    "data": "20220804",
+    "tags":"experimentando"
   },
   {
     "id": "54-nN_gEP6U",
     "titulo": "PASSEANDO NA MAIOR RODA GIGANTE DO CANADÁ - Ep.1613",
-    "data": "20220820"
+    "data": "20220820",
+    "tags":"viagens"
   },
   {
     "id": "2JfBLhXSSEk",
     "titulo": "4 QUALIDADES E UM DEFEITO - Ep.1614",
-    "data": "20220825"
+    "data": "20220825",
+    "tags":"viagens"
   },
   {
     "id": "CpQ4XPoRd8I",
     "titulo": "O DIA EM QUE UMA DESCONHECIDA DECIDIU O QUE A GENTE IA FAZER - Ep.1615",
-    "data": "20220903"
+    "data": "20220903",
+    "tags":"experimentando"
   },
   {
     "id": "gOqmQRN1u98",
@@ -8152,7 +8206,8 @@
   {
     "id": "5MVu1kzbn0Q",
     "titulo": "QUEM TEM O MELHOR BAGEL? New York X Montreal - Ep.1623",
-    "data": "20221118"
+    "data": "20221118",
+    "tags":"experimentando"
   },
   {
     "id": "CsccakxkKtY",
@@ -8212,12 +8267,14 @@
   {
     "id": "oCgflF6hlo8",
     "titulo": "EU NUNCA TINHA COMIDO CUSCUZ NA VIDA - Ep.1635",
-    "data": "20230301"
+    "data": "20230301",
+    "tags":"experimentando"
   },
   {
     "id": "dt7puHrnGbc",
     "titulo": "DO CHIFRE EU NÃO SABIA - JOGO DA VERDADE - EP.1636",
-    "data": "20230302"
+    "data": "20230302",
+    "tags": "jogo do divorcio"
   },
   {
     "id": "KC3l80daUq4",
@@ -8242,7 +8299,8 @@
   {
     "id": "WqBkvuIkOpM",
     "titulo": "PERGUNTA TRETEIRA, RESPOSTA HONESTA - Ep.1641",
-    "data": "20230407"
+    "data": "20230407",
+    "tags": "perguntas"
   },
   {
     "id": "2yqhor48U7w",
@@ -8292,17 +8350,20 @@
   {
     "id": "6HzFiA1d0QM",
     "titulo": "NOSSA PRIMEIRA VEZ EM LISBOA - Ep.1651",
-    "data": "20230715"
+    "data": "20230715",
+    "tags":"vportugal"
   },
   {
     "id": "deEPPVmjhdw",
     "titulo": "VISITAMOS A IGREJA FEITA COM OSSOS HUMANOS | EP. 1652",
-    "data": "20230724"
+    "data": "20230724",
+    "tags":"vportugal"
   },
   {
     "id": "eM0WOPoTDPI",
     "titulo": "ELE ACHOU QUE EU FOSSE MORRER - Ep.1653",
-    "data": "20230809"
+    "data": "20230809",
+    "tags":"vportugal"
   },
   {
     "id": "7D4ljsSn3Lw",
@@ -8352,7 +8413,8 @@
   {
     "id": "xm4JgR84sTg",
     "titulo": "COMEMOS A BALA DE SAL AMONÍACO HOLANDESA - Ep.1663",
-    "data": "20231013"
+    "data": "20231013",
+    "tags":"experimentando"
   },
   {
     "id": "SBRaAoD1gl0",
@@ -8382,7 +8444,8 @@
   {
     "id": "tl-KtDDEXFo",
     "titulo": "NÃO SEI COMO COLOCAR TÍTULO SEM PARECER PIADA... | EXPERIMENTANDO COMIDA TCHECA! - Ep.1669",
-    "data": "20231109"
+    "data": "20231109",
+    "tags":"experimentando"
   },
   {
     "id": "f6arVTapMZk",
@@ -8392,7 +8455,8 @@
   {
     "id": "bEaFVwgafrQ",
     "titulo": "COMEMOS CHOCOLATE COM MOSTARDA ALEMÃ - Ep. 1671",
-    "data": "20231122"
+    "data": "20231122",
+    "tags":"experimentando"
   },
   {
     "id": "viIegIih4OM",
@@ -8402,27 +8466,32 @@
   {
     "id": "TGB7GM6ZSJM",
     "titulo": "COMI O DOCE DA FRUTA MAIS FEDIDA DO MUNDO - Ep.1673",
-    "data": "20231204"
+    "data": "20231204",
+    "tags":"experimentando"
   },
   {
     "id": "oVCkAVlwYk4",
     "titulo": "NOSSO CANAL FEZ 10 ANOS E A GENTE VIAJOU - Ep. 1674",
-    "data": "20231213"
+    "data": "20231213",
+    "tags":"grecia/turquia"
   },
   {
     "id": "qdAE-eFae4c",
     "titulo": "COMI CHOCOLATE BELGA BARATINHO  - Ep.1675",
-    "data": "20231215"
+    "data": "20231215",
+    "tags":"experimentando"
   },
   {
     "id": "3M6txy-18Ds",
     "titulo": "MAIS BARATO QUE EM SÃO PAULO - Ep. 1676",
-    "data": "20231220"
+    "data": "20231220",
+    "tags":"grecia/turquia"
   },
   {
     "id": "YBXNGvzyjVA",
     "titulo": "O QUE OS OUTROS PAÍSES COMEM NO NATAL - Ep.1677",
-    "data": "20231223"
+    "data": "20231223",
+    "tags":"experimentando"
   },
   {
     "id": "vY98j_y-nDs",
@@ -8432,7 +8501,8 @@
   {
     "id": "6aC13XZmssE",
     "titulo": "SÓ EXISTE UM NAVIO COMO ESSE NO MUNDO! ep. 1679",
-    "data": "20240107"
+    "data": "20240107",
+    "tags":"grecia/turquia"
   },
   {
     "id": "xmcB559dzkU",
@@ -8447,7 +8517,8 @@
   {
     "id": "hVLbVxKACF4",
     "titulo": "A  QUASE PRISÃO DE LEON MARTINS - UM DOCUMENTÁRIO",
-    "data": "20240221"
+    "data": "20240221",
+    "tags":"grecia/turquia"
   },
   {
     "id": "OQBk0pxBIlY",
@@ -8457,7 +8528,8 @@
   {
     "id": "BelNuxNZQQg",
     "titulo": "ISSO FOI RECOMENDADO PELA REALEZA DA DINAMARCA - Ep.1684",
-    "data": "20240228"
+    "data": "20240228",
+    "tags":"experimentando"
   },
   {
     "id": "D3iWNabluHs",
@@ -8482,7 +8554,8 @@
   {
     "id": "mUfneDlRV08",
     "titulo": "MARATONA, PLATEIA E TERMÓPILA - VIVEMOS A HISTÓRIA GREGA - Ep.1689",
-    "data": "20240413"
+    "data": "20240413",
+    "tags":"grecia/turquia"
   },
   {
     "id": "T-y87CMj068",
@@ -8492,7 +8565,8 @@
   {
     "id": "iHQBHPBHRhQ",
     "titulo": "(QUASE) ROUBEI UMA FARMÁCIA PRA EXPERIMENTAR O CHOCOLATE DO MR. BEAST - Ep.1691",
-    "data": "20240428"
+    "data": "20240428",
+    "tags":"experimentando"
   },
   {
     "id": "qIcWtK_Or3s",
@@ -8512,7 +8586,8 @@
   {
     "id": "zUCdWwYIl9c",
     "titulo": "VOU CONHECER A MAIOR FEIRA DE COMPUTADORES DO MUNDO! - Ep. 1695",
-    "data": "20240527"
+    "data": "20240527",
+    "tags":"taiwan"
   },
   {
     "id": "N1ygDgYNTF0",
@@ -8522,7 +8597,8 @@
   {
     "id": "zoxlf28ftfs",
     "titulo": "o Zoo de Taipei é sensacional!  - Ep.1697",
-    "data": "20240619"
+    "data": "20240619",
+    "tags":"taiwan"
   },
   {
     "id": "rrHI3BeImg4",
@@ -8532,12 +8608,14 @@
   {
     "id": "SiQ5FM3fIGY",
     "titulo": "COMIDA DE RUA NUMA CIDADE LENDÁRIA- Ep.1699",
-    "data": "20240628"
+    "data": "20240628",
+    "tags":"taiwan"
   },
   {
     "id": "9l5v_xFzIxY",
     "titulo": "EXPERIMENTAMOS A BATATA DO CAPETA. (É O NOME DELA MESMO!) - Ep. 1700",
-    "data": "20240703"
+    "data": "20240703",
+    "tags":"experimentando"
   },
   {
     "id": "8Wl3GOA6Lnw",
@@ -8552,7 +8630,8 @@
   {
     "id": "4XKrRHtE8lA",
     "titulo": "Conhecendo o  Museu Astronômico de Taipei - EP. 1703",
-    "data": "20240802"
+    "data": "20240802",
+    "tags":"taiwan"
   },
   {
     "id": "INjE61ihsSw",
@@ -8562,7 +8641,8 @@
   {
     "id": "_nrXKsvlgug",
     "titulo": "COMO EXPLICAR ESSE RECHEIO? OS BÁLTICOS SABEM VENDER DOCE - Ep.1705",
-    "data": "20240821"
+    "data": "20240821",
+    "tags":"experimentando"
   },
   {
     "id": "XyF72Wd9Qwo",
@@ -8597,17 +8677,20 @@
   {
     "id": "O4NxREZQuXg",
     "titulo": "ESSA PIPOCA EGÍPCIA SURPREENDEU | PROVANDO COMIDA DA ÁFRICA  - Ep.1712",
-    "data": "20241022"
+    "data": "20241022",
+    "tags":"experimentando"
   },
   {
     "id": "Rh1NUu1fEhU",
     "titulo": "REVIEW DA COCA ZERO OREO, SEM MAKE E SEM FILTRO - Ep.1713",
-    "data": "20241027"
+    "data": "20241027",
+    "tags":"experimentando"
   },
   {
     "id": "vhe5uM7A2rM",
     "titulo": "ESTE SALGADO É UM SOCO NO ESTÔMAGO | Reino Unido- Ep. 1714",
-    "data": "20241029"
+    "data": "20241029",
+    "tags":"experimentando"
   },
   {
     "id": "4Rp7tpYaXfw",
@@ -8617,7 +8700,8 @@
   {
     "id": "FRFj2KmHZB0",
     "titulo": "ESTE HOMEM VAI REALIZAR UM SONHO - Ep.1716",
-    "data": "20241119"
+    "data": "20241119",
+    "tags":"grecia/turquia"
   },
   {
     "id": "UGYRG-NDwLM",
@@ -8642,7 +8726,8 @@
   {
     "id": "_2nH1erU7pw",
     "titulo": "NOSSAS AVENTURAS NA TURQUIA- Ep.1721",
-    "data": "20241222"
+    "data": "20241222",
+    "tags":"grecia/turquia"
   },
   {
     "id": "f-ZeYC_EK-E",
@@ -8677,7 +8762,8 @@
   {
     "id": "48ceqFqoH_0",
     "titulo": "BATATA SABOR OVO FRITO E DOCE DE MANGA COM PIMENTA -Ep. 1728",
-    "data": "20250226"
+    "data": "20250226",
+    "tags":"experimentando"
   },
   {
     "id": "iuUwHjKZ6fc",
@@ -8867,6 +8953,13 @@
   {
     "id": "0RH0x2SCQdQ",
     "titulo": "ESTAMOS COM SORTE? ESCOLHENDO PIZZA EM SP! - Ep.1766",
-    "data": "20260214"
+    "data": "20260214",
+    "tags":"estou com sorte"
+  },
+  {
+    "id": "dupMgZPwxtI",
+    "titulo": "VOLTAMOS PRA CASA E TIVEMOS 2 SURPRESAS -Ep. 1767",
+    "data": "20260313"
   }
+  
 ]
